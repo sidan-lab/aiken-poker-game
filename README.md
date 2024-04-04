@@ -1,55 +1,28 @@
 # aiken-poker-game
 
-Write validators in the `validators` folder, and supporting functions in the `lib` folder using `.ak` as a file extension.
+## Specs
 
-For example, as `validators/always_true.ak`
+### Parameter
 
-```gleam
-validator {
-  fn spend(_datum: Data, _redeemer: Data, _context: Data) -> Bool {
-    True
-  }
-}
-```
+- `xxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-## Building
+### Datum
 
-```sh
-aiken build
-```
+- `xxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- `xxxxxxxx`: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-## Testing
+### User Action
 
-You can write tests in any module using the `test` keyword. For example:
+1. A player join the table - Redeemer `JoinTable`
 
-```gleam
-test foo() {
-  1 + 1 == 2
-}
-```
+   - Check 1
+   - Check 2
 
-To run all tests, simply do:
-
-```sh
-aiken check
-```
-
-To run only tests matching the string `foo`, do:
-
-```sh
-aiken check -m foo
-```
-
-## Documentation
-
-If you're writing a library, you might want to generate an HTML documentation for it.
-
-Use:
-
-```sh
-aiken docs
-```
-
-## Resources
-
-Find more on the [Aiken's user manual](https://aiken-lang.org).
+2. A player leave the table - Redeemer `LeaveTable`
+   - Check 1
+   - Check 2

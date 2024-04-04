@@ -33,8 +33,9 @@ validator(fee_collector: Address) {
       }
       LeaveTable { player_to_remove } -> {
         let is_player_removed = False
+        let is_money_returned = False
 
-        is_player_removed
+        is_player_removed && is_money_returned
       }
     }
   }

@@ -5,12 +5,16 @@ type GameDatum {
   ActiveGame {
     max_players: Int,
     min_buy_in_lovelace: Int,
-    current_players: List<Address>,
+    big_blind: Int,
+    small_blind: Int,
+    table_dealer: Address,
+    current_players_and_balance: List<Address>,
   }
 }
 
 type GameRedeemer {
   JoinTable { new_player: Address }
+  TopUp {new_balance: Int}
   LeaveTable { player_to_remove: Address }
 }
 
@@ -25,12 +29,13 @@ validator(fee_collector: Address) {
     when redeemer is {
       JoinTable { new_player } -> {
         let is_min_buy_in_met = False
-        let is_room_having_vacancy = False
+        let is_table_full = False
         let is_player_already_at_table = False
         let is_datum_updated = False
 
         is_min_buy_in_met && is_room_having_vacancy && is_player_already_at_table
       }
+
       LeaveTable { player_to_remove } -> {
         let is_player_removed = False
         let is_money_returned = False
